@@ -623,7 +623,7 @@ setup(void)
 	}
 	for (j = 0; j < SchemeOut; ++j) {
 		for (i = 0; i < 2; ++i)
-			free(colors[j][i]);
+			free((void *)colors[j][i]);
 	}
 
 	clip = XInternAtom(dpy, "CLIPBOARD",   False);
@@ -836,7 +836,7 @@ main(int argc, char *argv[])
 	if (!drw_fontset_create(drw, (const char**)fonts, LENGTH(fonts)))
 		die("no fonts could be loaded.");
 
-	free(fonts[0]);
+	free((void *)fonts[0]);
 	lrpad = drw->fonts->h;
 
 #ifdef __OpenBSD__
