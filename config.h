@@ -19,6 +19,7 @@ static unsigned int lines        = 0;    /* -l option; if nonzero, dmenu uses ve
 static unsigned int lineheight   = 0;    /* -h option; minimum height of a menu line     */
 static const char *prompt        = NULL; /* -p  option; prompt to the left of input field */
 static unsigned int border_width = 2;    /* Size of the window border */
+static int fuzzy                 = 1;    /* -F  option; if 0, dmenu doesn't use fuzzy matching     */
 /*
  * Characters not considered part of a word while deleting words
  * for example: " /?\"&[]"
