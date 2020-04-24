@@ -21,6 +21,7 @@ static const char *prompt          = "";   /* -p  option; prompt to the left of 
 static unsigned int border_width   = 2;    /* Size of the window border */
 static int fuzzy                   = 1;    /* -F  option; if 0, dmenu doesn't use fuzzy matching */
 static const char worddelimiters[] = " ";  /* Characters not considered part of a word while deleting words for example: " /?\"&[]" */
+static const char passwordsymbol   = '*';  /* -P mask symbol */
 
 /* -fn option overrides fonts[0]; default X11 font or font set */
 static const char *fonts[] = {

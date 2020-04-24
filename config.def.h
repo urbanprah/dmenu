@@ -31,3 +31,6 @@ static const char worddelimiters[] = " ";
 
 /* Size of the window border */
 static unsigned int border_width = 0;
+
+/* -P mask symbol */
+static const char passwordsymbol   = '*';
