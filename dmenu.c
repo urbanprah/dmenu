@@ -15,6 +15,7 @@
 #ifdef XINERAMA
 #include <X11/extensions/Xinerama.h>
 #endif
+#include <X11/Xresource.h>
 #include <X11/Xft/Xft.h>
 
 #include "drw.h"
@@ -26,10 +27,25 @@
 #define LENGTH(X)             (sizeof X / sizeof X[0])
 #define TEXTW(X)              (drw_fontset_getwidth(drw, (X)) + lrpad)
 
-/* enums */
-enum { SchemeNorm, SchemeSel, SchemeNormHighlight, SchemeSelHighlight,
-       SchemeOut, SchemeLast }; /* color schemes */
+#define XRDB_LOAD_COLOR(R,V)    if (XrmGetResource(xrdb, R, NULL, &type, &value) == True) { \
+                                  if (value.addr != NULL && strnlen(value.addr, 8) == 7 && value.addr[0] == '#') { \
+                                    int i = 1; \
+                                    for (; i <= 6; i++) { \
+                                      if (value.addr[i] < 48) break; \
+                                      if (value.addr[i] > 57 && value.addr[i] < 65) break; \
+                                      if (value.addr[i] > 70 && value.addr[i] < 97) break; \
+                                      if (value.addr[i] > 102) break; \
+                                    } \
+                                    if (i == 7) { \
+                                      strncpy(V, value.addr, 7); \
+                                      V[7] = '\0'; \
+                                    } \
+                                  } \
+                                }
 
+/* enums */
+enum { SchemeNorm, SchemeSel, SchemeNormHighlight,
+       SchemeSelHighlight, SchemeOut, SchemeLast }; /* color schemes */
 
 struct item {
 	char *text;
@@ -693,6 +709,49 @@ readstdin(void)
 	inputw = items ? TEXTW(items[imax].text) : 0;
 	lines = MIN(lines, i);
 }
+
+
+void
+loadxrdb()
+{
+    Display *display;
+    char * resm;
+    XrmDatabase xrdb;
+    char *type;
+    XrmValue value;
+
+    display = XOpenDisplay(NULL);
+
+    if (display != NULL) {
+        resm = XResourceManagerString(display);
+
+        if (resm != NULL) {
+            xrdb = XrmGetStringDatabase(resm);
+
+            if (xrdb != NULL) {
+                    XRDB_LOAD_COLOR("color0", color0);
+                    XRDB_LOAD_COLOR("color1", color1);
+                    XRDB_LOAD_COLOR("color2", color2);
+                    XRDB_LOAD_COLOR("color3", color3);
+                    XRDB_LOAD_COLOR("color4", color4);
+                    XRDB_LOAD_COLOR("color5", color5);
+                    XRDB_LOAD_COLOR("color6", color6);
+                    XRDB_LOAD_COLOR("color7", color7);
+                    XRDB_LOAD_COLOR("color8", color8);
+                    XRDB_LOAD_COLOR("color9", color9);
+                    XRDB_LOAD_COLOR("color10", color10);
+                    XRDB_LOAD_COLOR("color11", color11);
+                    XRDB_LOAD_COLOR("color12", color12);
+                    XRDB_LOAD_COLOR("color13", color13);
+                    XRDB_LOAD_COLOR("color14", color14);
+                    XRDB_LOAD_COLOR("color15", color15);
+            }
+        }
+    }
+
+    XCloseDisplay(display);
+}
+
 
 static void
 run(void)
