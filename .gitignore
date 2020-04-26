@@ -1,5 +1,7 @@
 dmenu
+dmenu_run
+dmenu_path
 stest
+config.def.h
 *.o
 *.orig
-configh.h
