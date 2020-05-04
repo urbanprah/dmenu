@@ -819,6 +819,7 @@ setup(void)
 	int a, di, n, area = 0;
 #endif
 	/* init appearance */
+        loadxrdb();
 	for (j = 0; j < SchemeLast; j++)
 		scheme[j] = drw_scm_create(drw, colors[j], 2);
 	clip = XInternAtom(dpy, "CLIPBOARD",   False);
