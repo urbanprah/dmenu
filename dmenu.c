@@ -864,7 +864,7 @@ setup(void)
 		} else {
 			x = info[i].x_org;
 			y = info[i].y_org + (topbar ? 0 : info[i].height - mh);
-			mw = info[i].width;
+			mw = info[i].width - 4 ; /* TODO: figure out why width is +4 */
 		}
 
 		XFree(info);
