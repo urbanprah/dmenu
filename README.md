@@ -6,4 +6,5 @@ TODO
 =====
 * [ ] [feature][border] make border a comandline option
 * [x] [issue][xrdb] call loadxrdb()
+* [ ] [config] set appropriate default colors (xresources -> schemes)
 

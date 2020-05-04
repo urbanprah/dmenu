@@ -1,12 +1,12 @@
 /*
-       /##                                            
-      | ##                                            
+       /##
+      | ##
   /####### /######/####   /######  /#######  /##   /##
  /##__  ##| ##_  ##_  ## /##__  ##| ##__  ##| ##  | ##
 | ##  | ##| ## \ ## \ ##| ########| ##  \ ##| ##  | ##
 | ##  | ##| ## | ## | ##| ##_____/| ##  | ##| ##  | ##
 |  #######| ## | ## | ##|  #######| ##  | ##|  ######/
- \_______/|__/ |__/ |__/ \_______/|__/  |__/ \______/ 
+ \_______/|__/ |__/ |__/ \_______/|__/  |__/ \______/
 */
 /* See LICENSE file for copyright and license details. */
 /* Default settings; can be overriden by command line. */
@@ -49,6 +49,7 @@ static char color14[] = "#4fb3a3";
 static char color15[] = "#c5c9c3";
 static const char *colors[][2] = {
 	/*                        fg      bg     */
+        /* TODO */
 	[SchemeNorm]          = { color7, color0 },
 	[SchemeSel]           = { color1, color0 },
 	[SchemeSelHighlight]  = { color2, color0 },
