@@ -2,7 +2,7 @@
 [ -e "$HOME/.cache/wal/colors.sh" ] && . "${HOME}/.cache/wal/colors.sh"
 
 actions=("lock\nrestart\nshutdown\nsuspend\nhibernate")
-action=$(echo -e $actions | dmenu -l 5 -c -i -fn "monospace:size=13" -m "0" -p ">>" -nb "$color0" -nf "$color15" -sb "$color1" -sf "$color15")
+action=$(echo -e $actions | dmenu -l 5 -c -i -p ">>")
 case "$action" in
     lock)
         betterlockscreen -l

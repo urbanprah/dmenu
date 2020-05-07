@@ -50,9 +50,9 @@ static char color15[] = "#c5c9c3";
 static const char *colors[][2] = {
 	/*                        fg      bg     */
         /* TODO */
-	[SchemeNorm]          = { color7, color0 },
-	[SchemeSel]           = { color1, color0 },
-	[SchemeSelHighlight]  = { color2, color0 },
+	[SchemeNorm]          = { color4, color0 },
+	[SchemeSel]           = { color7, color1 },
+	[SchemeSelHighlight]  = { color0, color1 },
 	[SchemeNormHighlight] = { color1, color0 },
-	[SchemeOut]           = { color4, color0 },
+	[SchemeOut]           = { color0, color7 },
 };
