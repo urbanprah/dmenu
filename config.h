@@ -25,10 +25,10 @@ static const char passwordsymbol   = '*';  /* -P mask symbol */
 
 /* -fn option overrides fonts[0]; default X11 font or font set */
 static const char *fonts[] = {
-        "monospace:size=14",
-        "Font Awesome 5 Free:size=14:antialias=true:autohint=true",
-        "JoyPixels:size=14:antialias=true:autohint=true",
+        "JetBrains Mono Nerd Font Mono:size=15:antialias=true:autohint=true",
+        "JoyPixels:size=15:antialias=true:autohint=true",
 };
+
 
 /* xresources colors */
 static char color0[]  = "#090a0d";

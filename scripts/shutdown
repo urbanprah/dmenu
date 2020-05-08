@@ -1,26 +1,19 @@
 #!/bin/sh
 [ -e "$HOME/.cache/wal/colors.sh" ] && . "${HOME}/.cache/wal/colors.sh"
 
-actions=("lock\nrestart\nshutdown\nsuspend\nhibernate")
+lock=" lock"
+restart=" restart"
+shutdown=" shutdown"
+suspend="⏾ suspend"
+hibernate=" hibernate"
+
+actions=("$lock\n$restart\n$shutdown\n$suspend\n$hibernate")
 action=$(echo -e $actions | dmenu -l 5 -c -i -p ">>")
 case "$action" in
-    lock)
-        betterlockscreen -l
-        ;;
-
-    restart)
-        sudo systemctl reboot
-        ;;
-
-    shutdown)
-        sudo systemctl poweroff
-        ;;
-
-    suspend)
-        sudo systemctl suspend
-        ;;
-
-    hibernate)
-        sudo systemctl hibernate
-        ;;
+    $lock) slock ;;
+    $restart) sudo systemctl reboot ;;
+    $shutdown) sudo systemctl poweroff ;;
+    $suspend) sudo systemctl suspend ;;
+    $hibernate) sudo systemctl hibernate ;;
 esac
+
